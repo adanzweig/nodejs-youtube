@@ -53,6 +53,9 @@ async function uploadVideo(title, description, videoInput) {
 }
 
 // Immediately invoked function expression (IIFE) to run the uploadVideo function
-(async () => {
-    await uploadVideo('@codingWithAdo test', 'Testing upload', 'test.mp4');
-})();
+// (async () => {
+//     await uploadVideo('@codingWithAdo test', 'Testing upload', 'test.mp4');
+// })();
+module.exports = {
+    uploadVideo
+}

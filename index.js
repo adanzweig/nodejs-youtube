@@ -10,8 +10,9 @@ require('dotenv').config(); // This allows us to use environment variables from 
  * @param {string} title - The title of the video.
  * @param {string} description - The description of the video.
  * @param {string} videoInput - The path to the video file to be uploaded.
+ * @param {string} status - Status of the video uploaded (public/private)
  */
-async function uploadVideo(title, description, videoInput) {
+async function uploadVideo(title, description, videoInput,status='private') {
     // Set up OAuth2 client using environment variables
     const oauth2Client = new OAuth2(
         process.env.CLIENT_ID,
@@ -35,7 +36,7 @@ async function uploadVideo(title, description, videoInput) {
                 description  // Video description
             },
             status: {
-                privacyStatus: 'private' // Setting the video to private
+                privacyStatus: status // Setting the video to private
             },
         },
         part: 'snippet,status', // Define the parts of the video object we are setting/updating
